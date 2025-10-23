@@ -20,26 +20,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    // Contact form submission handler (safe: checks for existence)
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const formMessage = form.querySelector('.form-message');
 
-    const form = document.querySelector('.contact-form');
-    const formMessage = document.querySelector('.form-message');
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        
-        formMessage.textContent = `Thank you, ${name}! We'll reach out to ${email} soon.`;
-        formMessage.style.color = 'var(--sage-green)';
-        
-        form.reset();
-        
-        setTimeout(() => {
-            formMessage.textContent = '';
-        }, 5000);
-    });
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method || 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
 
+                if (response.ok) {
+                    if (formMessage) formMessage.textContent = "🎉 Thanks for joining! We'll be in touch soon.";
+                    form.reset();
+                } else {
+                    const errText = await response.text().catch(() => 'Server error');
+                    if (formMessage) formMessage.textContent = `❌ Oops, something went wrong. ${errText}`;
+                }
+            } catch (err) {
+                if (formMessage) formMessage.textContent = '❌ Network error. Please try again later.';
+                // eslint-disable-next-line no-console
+                console.error('Contact form submit error:', err);
+            }
+        });
+    }
     const galleryItems = document.querySelectorAll('.gallery-item');
     
     const observerOptions = {

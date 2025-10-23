@@ -79,24 +79,57 @@
             </div>
         </section>
 
-        <section id="join">
-            <div class="container">
-                <h2>Join Our Club</h2>
-                <p class="join-subtitle">Interested in folding with us? Sign up and we'll be in touch!</p>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your.name@email.com" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Join the Club</button>
-                    <p class="form-message"></p>
-                </form>
-            </div>
-        </section>
+<section id="join">
+  <div class="container">
+    <h2>Join Our Club</h2>
+    <p class="join-subtitle">Interested in folding with us? Sign up and we'll be in touch!</p>
+
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="form">
+      <!-- required Web3Forms keys -->
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+      <input type="hidden" name="subject" value="New Origami Club Signup">
+      <input type="hidden" name="from_name" value="Origami Club Website">
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <!-- your fields -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your.name@email.com" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Join the Club</button>
+      <p class="form-message"></p>
+    </form>
+  </div>
+</section>
+
+<!-- keep this at the bottom of your body -->
+<script>
+document.querySelector("#form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const msg = form.querySelector(".form-message");
+
+  const res = await fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: { Accept: "application/json" },
+  });
+
+  if (res.ok) {
+    msg.textContent = "🌿 thanks for folding with us! we'll reach out soon.";
+    form.reset();
+  } else {
+    msg.textContent = "❌ something went wrong. please try again later.";
+  }
+});
+</script>
+
     </main>
 
     <footer>
