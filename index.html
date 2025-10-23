@@ -13,14 +13,18 @@
 <body>
     <header>
         <nav>
-            <div class="nav-container">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Origami Club Logo" class="logo-img">
                 <h1 class="logo">Origami Club</h1>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#join">Join Us</a></li>
-                </ul>
             </div>
+            <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#join">Join Us</a></li>
+            </ul>
+        </div>
+
         </nav>
     </header>
 
@@ -37,7 +41,7 @@
                 <h2>About Our Club</h2>
                 <div class="about-content">
                     <p>welcome to the origami club!</p>
-                    <p>come join us for a relaxing and creative time folding paper into art — from simple cranes to intricate designs.</p>
+                    <p>come join us for a relaxing and creative time folding paper into art - from simple cranes to intricate designs.</p>
                     <p>no experience needed, just curiosity and a love for creating!</p>
                     <div class="meeting-info">
                         <div class="info-card">
@@ -56,12 +60,12 @@
         <section id="gallery">
             <div class="container">
                 <h2>Our Creations</h2>
-                <p class="gallery-subtitle">A glimpse of the beautiful origami our members have crafted</p>
+                <p class="gallery-subtitle">a glimpse of the beautiful origami our members have crafted</p>
                 <div class="gallery-grid">
                     <div class="gallery-item">
                         <img src="images/lucky stars.jpg" alt="lucky origami stars">
                         <div class="overlay">
-                            <p>paper stars</p>
+                            <p>lucky paper stars</p>
                         </div>
                     </div>
                     <div class="gallery-item">
@@ -82,8 +86,8 @@
 
 <section id="join">
   <div class="container">
-    <h2>Join Our Club</h2>
-    <p class="join-subtitle">Interested in folding with us? Sign up and we'll be in touch!</p>
+    <h2>join our club</h2>
+    <p class="join-subtitle">interested in folding with us? sign up and we'll be in touch!</p>
 
     <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="form">
       <!-- required Web3Forms keys -->
@@ -94,16 +98,16 @@
 
       <!-- your fields -->
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your full name" required>
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" placeholder="your full name" required>
       </div>
 
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">email</label>
         <input type="email" id="email" name="email" placeholder="your.name@email.com" required>
       </div>
 
-      <button type="submit" class="submit-btn">Join the Club</button>
+      <button type="submit" class="submit-btn">join the club</button>
       <p class="form-message"></p>
     </form>
   </div>
@@ -135,7 +139,7 @@ document.querySelector("#form").addEventListener("submit", async (e) => {
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Origami Club. Fold with passion, create with purpose.</p>
+            <p>&copy; 2025 leland origami club. fold with passion, create with purpose.</p>
         </div>
     </footer>
 
