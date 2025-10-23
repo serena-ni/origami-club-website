@@ -45,12 +45,21 @@ header {
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space between logo image and text */
+}
+
+.logo-img {
+    width: 40px;  /* adjust size as needed */
+    height: auto;
 }
 
 .logo {
