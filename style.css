@@ -332,6 +332,32 @@ h2 {
     color: var(--sage-green);
 }
 
+.social-buttons {
+  display: flex;
+  gap: 15px; /* space between buttons */
+  justify-content: center; /* center horizontally */
+  margin-top: 20px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #92bca0; /* your origami club color */
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 24px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+  background-color: #7aa78f; /* slightly darker on hover */
+}
+
 footer {
     background-color: var(--text-dark);
     color: var(--white);
