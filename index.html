@@ -126,7 +126,7 @@
 </div>
 </section>
 
-<!-- keep this at the bottom of your body -->
+<!-- keep this at the bottom of body -->
 <script>
 document.querySelector("#form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -140,7 +140,7 @@ document.querySelector("#form").addEventListener("submit", async (e) => {
   });
 
   if (res.ok) {
-    msg.textContent = "🌿 thanks for folding with us! we'll reach out soon.";
+    msg.textContent = "🌿 thanks for submitting! we'll reach out soon.";
     form.reset();
   } else {
     msg.textContent = "❌ something went wrong. please try again later.";
