@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -33,6 +35,7 @@ body {
     padding: 0 2rem;
 }
 
+/* Header */
 header {
     position: fixed;
     top: 0;
@@ -54,11 +57,11 @@ header {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* space between logo image and text */
+    gap: 0.5rem;
 }
 
 .logo-img {
-    width: 40px;  /* adjust size as needed */
+    width: 40px;
     height: auto;
 }
 
@@ -101,6 +104,7 @@ header {
     width: 100%;
 }
 
+/* Main sections */
 main {
     margin-top: 80px;
 }
@@ -109,6 +113,7 @@ section {
     padding: 5rem 0;
 }
 
+/* Hero section */
 #hero {
     background: linear-gradient(135deg, var(--sage-green-light) 0%, var(--sage-green) 100%);
     color: var(--text-dark);
@@ -128,6 +133,7 @@ section {
     opacity: 0.95;
 }
 
+/* General headings */
 h2 {
     font-size: 2.5rem;
     font-weight: 600;
@@ -136,6 +142,7 @@ h2 {
     text-align: center;
 }
 
+/* About section */
 #about {
     background-color: var(--white);
 }
@@ -186,6 +193,7 @@ h2 {
     line-height: 1.8;
 }
 
+/* Gallery section */
 #gallery {
     background-color: var(--off-white);
 }
@@ -194,9 +202,51 @@ h2 {
     text-align: center;
     color: var(--text-light);
     font-size: 1.1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
+/* Sort Dropdown */
+.sort-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center horizontally */
+    margin-bottom: 2rem; /* spacing from gallery title */
+    gap: 1rem; /* space between label and dropdown */
+}
+
+.sort-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.sort-select {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    background-color: var(--sage-green);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.sort-select:hover {
+    background-color: var(--sage-green-dark);
+    transform: translateY(-2px);
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--sage-green-dark);
+    box-shadow: 0 0 0 4px rgba(146, 188, 160, 0.1);
+}
+
+/* Gallery grid */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -221,6 +271,7 @@ h2 {
     transition: transform 0.3s ease;
 }
 
+/* Overlay text */
 .overlay {
     position: absolute;
     top: 0;
@@ -233,14 +284,18 @@ h2 {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    border-radius: 16px;
 }
 
 .overlay p {
     color: var(--white);
     font-size: 1.2rem;
     font-weight: 500;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Hover effect */
 .gallery-item:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
@@ -269,15 +324,19 @@ h2 {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-family: 'Poppins', sans-serif;
     box-shadow: var(--shadow);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .show-more-btn:hover {
     background: var(--sage-green-dark);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
 }
 
+/* Join section */
 #join {
     background-color: var(--white);
 }
@@ -356,10 +415,11 @@ h2 {
     color: var(--sage-green);
 }
 
+/* Social buttons */
 .social-buttons {
   display: flex;
-  gap: 15px; /* space between buttons */
-  justify-content: center; /* center horizontally */
+  gap: 15px;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -369,7 +429,7 @@ h2 {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background-color: #92bca0; /* your origami club color */
+  background-color: var(--sage-green);
   color: white;
   border-radius: 10px;
   text-decoration: none;
@@ -379,9 +439,10 @@ h2 {
 
 .social-btn:hover {
   transform: scale(1.1);
-  background-color: #7aa78f; /* slightly darker on hover */
+  background-color: var(--sage-green-dark);
 }
 
+/* Footer */
 footer {
     background-color: var(--text-dark);
     color: var(--white);
@@ -394,6 +455,7 @@ footer p {
     font-size: 0.95rem;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
