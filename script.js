@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // -------------------- NAVIGATION SCROLL --------------------
     const navLinks = document.querySelectorAll('.nav-links a');
     
     navLinks.forEach(link => {
@@ -20,7 +21,53 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    // Contact form submission handler (safe: checks for existence)
+
+    // -------------------- GALLERY SORT --------------------
+    function sortProjects(projects, mode) {
+        switch (mode) {
+            case "most-recent":
+                return [...projects].sort((a, b) => new Date(b.date) - new Date(a.date));
+            case "least-recent":
+                return [...projects].sort((a, b) => new Date(a.date) - new Date(b.date));
+            case "easiest":
+                return [...projects].sort((a, b) => a.difficulty - b.difficulty);
+            case "hardest":
+                return [...projects].sort((a, b) => b.difficulty - a.difficulty);
+            default:
+                return projects;
+        }
+    }
+
+    // Get gallery items and convert to sortable objects
+    function getProjectsFromDOM() {
+        return [...document.querySelectorAll('.gallery-item')].map(item => ({
+            element: item,
+            date: item.dataset.date,
+            difficulty: parseInt(item.dataset.difficulty, 10)
+        }));
+    }
+
+    let projects = getProjectsFromDOM();
+
+    // Render sorted projects into the DOM
+    function renderProjects(list) {
+        const galleryContainer = document.querySelector('.gallery-grid'); 
+        if (!galleryContainer) return;
+        galleryContainer.innerHTML = "";
+        list.forEach(p => galleryContainer.appendChild(p.element));
+    }
+
+    // Dropdown listener
+    const sortSelect = document.getElementById('sort');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+            const mode = sortSelect.value;
+            const sorted = sortProjects(projects, mode);
+            renderProjects(sorted);
+        });
+    }
+
+    // -------------------- CONTACT FORM --------------------
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', async function (e) {
@@ -36,19 +83,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 if (response.ok) {
-                    if (formMessage) formMessage.textContent = "🎉 Thanks for joining! We'll be in touch soon.";
+                    if (formMessage) formMessage.textContent = "🎉 thanks for joining! we'll be in touch soon.";
                     form.reset();
                 } else {
                     const errText = await response.text().catch(() => 'Server error');
-                    if (formMessage) formMessage.textContent = `❌ Oops, something went wrong. ${errText}`;
+                    if (formMessage) formMessage.textContent = `❌ oops, something went wrong. ${errText}`;
                 }
             } catch (err) {
-                if (formMessage) formMessage.textContent = '❌ Network error. Please try again later.';
-                // eslint-disable-next-line no-console
+                if (formMessage) formMessage.textContent = '❌ network error. please try again later.';
                 console.error('Contact form submit error:', err);
             }
         });
     }
+
+    // -------------------- GALLERY FADE-IN --------------------
     const galleryItems = document.querySelectorAll('.gallery-item');
     
     const observerOptions = {

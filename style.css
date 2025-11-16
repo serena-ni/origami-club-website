@@ -254,6 +254,30 @@ h2 {
     opacity: 1;
 }
 
+/* Show More Button */
+.show-more-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.show-more-btn {
+    display: inline-block;
+    background: var(--sage-green);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.show-more-btn:hover {
+    background: var(--sage-green-dark);
+    transform: translateY(-2px);
+}
+
 #join {
     background-color: var(--white);
 }
