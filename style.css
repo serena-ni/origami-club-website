@@ -167,12 +167,13 @@ h2 {
 }
 
 .info-card {
-    background: var(--off-white);
+    background: #f4f6f5;
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .info-card:hover {
@@ -209,16 +210,9 @@ h2 {
 .sort-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* center horizontally */
-    margin-bottom: 2rem; /* spacing from gallery title */
-    gap: 1rem; /* space between label and dropdown */
-}
-
-.sort-label {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--text-dark);
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
 }
 
 .sort-select {
@@ -278,7 +272,7 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(146, 188, 160, 0.9);
+    background: rgba(146, 188, 160, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -289,7 +283,7 @@ h2 {
 
 .overlay p {
     color: var(--white);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -302,7 +296,7 @@ h2 {
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .gallery-item:hover .overlay {
@@ -317,23 +311,27 @@ h2 {
 
 .show-more-btn {
     display: inline-block;
-    background: var(--sage-green);
-    color: var(--white);
+    background: rgba(146, 188, 160, 0.15);
+    color: var(--sage-green-dark);
     padding: 0.9rem 2rem;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 1rem;
+    border-radius: 16px;
     font-weight: 500;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: var(--shadow);
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid rgba(146, 188, 160, 0.35);
+    backdrop-filter: blur(4px);
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .show-more-btn:hover {
-    background: var(--sage-green-dark);
+    background: rgba(146, 188, 160, 0.3);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 8px 20px rgba(146, 188, 160, 0.25);
+}
+
+.show-more-btn:visited,
+.show-more-btn:active {
+    color: var(--sage-green-dark);
+    text-decoration: none;
 }
 
 /* Join section */
@@ -387,25 +385,28 @@ h2 {
 
 .submit-btn {
     width: 100%;
-    padding: 1rem;
-    background: var(--sage-green);
-    color: var(--white);
-    border: none;
-    border-radius: 12px;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem;
+    background: linear-gradient(135deg, rgba(146,188,160,0.85), rgba(146,188,160,0.65));
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 18px;
+    border: none;
+    font-size: 1.05rem;
     font-weight: 500;
+    letter-spacing: 0.2px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 10px 25px rgba(146,188,160,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .submit-btn:hover {
-    background: var(--sage-green-dark);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(146,188,160,0.45);
 }
 
-.submit-btn:active {
-    transform: translateY(0);
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(146,188,160,0.4), 0 14px 30px rgba(146,188,160,0.45);
 }
 
 .form-message {
@@ -429,17 +430,23 @@ h2 {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background-color: var(--sage-green);
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
+  background: rgba(146,188,160,0.25);
+  color: var(--sage-green-dark);
+  border-radius: 14px;
   font-size: 24px;
+  text-decoration: none;
   transition: transform 0.2s, background-color 0.2s;
 }
 
 .social-btn:hover {
   transform: scale(1.1);
-  background-color: var(--sage-green-dark);
+  background-color: rgba(146,188,160,0.45);
+}
+
+.social-btn:visited,
+.social-btn:active {
+    color: var(--sage-green-dark);
+    text-decoration: none;
 }
 
 /* Footer */

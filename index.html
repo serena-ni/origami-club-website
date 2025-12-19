@@ -1,164 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>leland origami club</title>
-    <link rel="icon" type="image/png" href="images/assets/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leland origami club</title>
+  <link rel="icon" href="images/assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="images/assets/favicon.png" alt="Origami Club Logo" class="logo-img">
-                <h1 class="logo">leland origami club</h1>
-            </div>
-            <ul class="nav-links">
-            <li><a href="#about">about</a></li>
-            <li><a href="#gallery">gallery</a></li>
-            <li><a href="#join">join us</a></li>
-            </ul>
-        </div>
-
-        </nav>
-    </header>
-
-    <main>
-        <section id="hero">
-            <div class="container">
-                <h2>where paper comes to life</h2>
-                <p>discover the art of origami and create something beautiful</p>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2>about our club</h2>
-                <div class="about-content">
-                    <p>welcome to the origami club!</p>
-                    <p>come join us for a relaxing and creative time folding paper into art - from simple cranes to intricate designs.</p>
-                    <p>no experience needed, just curiosity and a love for creating!</p>
-                    <div class="meeting-info">
-                        <div class="info-card">
-                            <h3>when</h3>
-                            <p>tuesdays<br>1:02-1:32 pm</p>
-                        </div>
-                        <div class="info-card">
-                            <h3>where</h3>
-                            <p>sportsfolio</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-<section id="gallery">
-    <div class="container">
-        <h2>our creations</h2>
-        <p class="gallery-subtitle">a glimpse of the beautiful origami our members have crafted</p>
-        <div class="gallery-grid">
-            <!-- only 3 most recent folds -->
-             <div class="gallery-item">
-                <img src="images/origami/christmas tree.JPG" alt="christmas tree">
-                <div class="overlay"><p>christmas tree</p></div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="images/origami/tulips.jpg" alt="tulips">
-                <div class="overlay"><p>tulips</p></div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="images/origami/foxes.jpg" alt="origami foxes">
-                <div class="overlay"><p>foxes</p></div>
-            </div>
-        </div>
-
-        <!-- "show more" button -->
-        <div class="show-more-container">
-            <a href="gallery.html" class="show-more-btn">see full gallery →</a>
-        </div>
+<header>
+  <nav>
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="images/assets/favicon.png" class="logo-img">
+        <h1 class="logo">leland origami club</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero">home</a></li>
+        <li><a href="#about">about</a></li>
+        <li><a href="#gallery">gallery</a></li>
+        <li><a href="#join">join us</a></li>
+      </ul>
     </div>
-</section>
+  </nav>
+</header>
 
-<section id="join">
-  <div class="container">
-    <h2>join our club</h2>
-    <p class="join-subtitle">interested in folding with us? sign up and we'll be in touch!</p>
+<main>
+  <section id="hero">
+    <div class="container">
+      <h2>where paper comes to life</h2>
+      <p>discover the art of origami and create something beautiful</p>
+    </div>
+  </section>
 
-    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="form">
-      <!-- required Web3Forms keys -->
-      <input type="hidden" name="access_key" value="2b3128b8-9dca-41c1-931f-997d1e220151">
-      <input type="hidden" name="subject" value="New Origami Club Signup">
-      <input type="hidden" name="from_name" value="Origami Club Website">
-      <input type="checkbox" name="botcheck" style="display:none">
+  <section id="about">
+    <div class="container">
+      <h2>about our club</h2>
+      <div class="about-content">
+        <p>welcome to the origami club!</p>
+        <p>fold paper into art - from simple cranes to intricate designs.</p>
+        <p>no experience needed, just curiosity.</p>
 
-      <!-- your fields -->
-      <div class="form-group">
-        <label for="name">name</label>
-        <input type="text" id="name" name="name" placeholder="your full name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">email</label>
-        <input type="email" id="email" name="email" placeholder="your.name@email.com" required>
-      </div>
-
-      <button type="submit" class="submit-btn">join the club</button>
-      <p class="form-message"></p>
-    </form>
-  </div>
-
-<div class="social-buttons">
-  <a href="https://linktr.ee/lelandorigami" target="_blank" class="social-btn">
-    <i class="fas fa-link"></i>
-  </a>
-  <a href="http://instagram.com/lelandorigami/" target="_blank" class="social-btn">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://discord.gg/PkvPx3NABZ" target="_blank" class="social-btn">
-    <i class="fab fa-discord"></i>
-  </a>
-</div>
-</section>
-
-<!-- keep this at the bottom of body -->
-<script>
-document.querySelector("#form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const msg = form.querySelector(".form-message");
-
-  const res = await fetch(form.action, {
-    method: form.method,
-    body: new FormData(form),
-    headers: { Accept: "application/json" },
-  });
-
-  if (res.ok) {
-    msg.textContent = "🌿 thanks for submitting! we'll reach out soon.";
-    form.reset();
-  } else {
-    msg.textContent = "❌ something went wrong. please try again later.";
-  }
-});
-
-</script>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 leland origami club. fold with passion, create with purpose.</p>
+        <div class="meeting-info">
+          <div class="info-card">
+            <h3>when</h3>
+            <p>tuesdays<br>1:02–1:32 pm</p>
+          </div>
+          <div class="info-card">
+            <h3>where</h3>
+            <p>sportsfolio</p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <section id="gallery">
+    <div class="container">
+      <h2>our creations</h2>
+      <p class="gallery-subtitle">recent folds by our members</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/origami/christmas tree.JPG" loading="lazy">
+          <div class="overlay"><p>christmas tree</p></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/origami/tulips.jpg" loading="lazy">
+          <div class="overlay"><p>tulips</p></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/origami/foxes.jpg" loading="lazy">
+          <div class="overlay"><p>foxes</p></div>
+        </div>
+      </div>
+
+      <div class="show-more-container">
+        <a href="/gallery.html" class="show-more-btn">see full gallery →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="container">
+      <h2>join our club</h2>
+      <p class="join-subtitle">interested in folding with us?</p>
+
+      <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="form">
+        <input type="hidden" name="access_key" value="2b3128b8-9dca-41c1-931f-997d1e220151">
+        <input type="hidden" name="subject" value="Origami Club Signup">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="form-group">
+          <label>name</label>
+          <input type="text" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label>email</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <button class="submit-btn">join the club</button>
+        <p class="form-message"></p>
+      </form>
+
+      <div class="social-buttons">
+        <a href="https://linktr.ee/lelandorigami" class="social-btn"><i class="fas fa-link"></i></a>
+        <a href="https://instagram.com/lelandorigami" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="https://discord.gg/PkvPx3NABZ" class="social-btn"><i class="fab fa-discord"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 leland origami club</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

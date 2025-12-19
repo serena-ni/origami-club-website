@@ -1,90 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>leland origami club - gallery</title>
-    <link rel="icon" type="image/png" href="images/assets/favicon.png">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>origami gallery</title>
+  <link rel="icon" href="../images/assets/favicon.png">
+  <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-
 <header>
-    <nav>
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="images/assets/favicon.png" class="logo-img">
-                <h1 class="logo">leland origami club</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html#about">about</a></li>
-                <li><a href="gallery.html" class="active">gallery</a></li>
-                <li><a href="index.html#join">join us</a></li>
-            </ul>
-        </div>
-    </nav>
+  <nav>
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="../images/assets/favicon.png" class="logo-img">
+        <h1 class="logo">leland origami club</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">home</a></li>
+        <li><a href="/#about">about</a></li>
+        <li><a href="/gallery" class="active">gallery</a></li>
+        <li><a href="/#join">join us</a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
 
-<main style="margin-top: 100px;">
-    <section id="gallery">
-        <div class="container">
-            <h2>full gallery</h2>
-            <p class="gallery-subtitle">all of our creations throughout the year</p>
+<main style="margin-top:100px">
+<section id="gallery">
+  <div class="container">
+    <h2>full gallery</h2>
+    <p class="gallery-subtitle">all creations throughout the year</p>
 
-            <div class="sort-container">
-            <label for="sort">sort by:</label>
-            <select id="sort" class="sort-select">
-                <option value="recent">most recent</option>
-                <option value="oldest">least recent</option>
-                <option value="easy">difficulty: easy → hard</option>
-                <option value="hard">difficulty: hard → easy</option>
-            </select>
+    <div class="sort-container">
+      <label>sort by:</label>
+      <select id="sort" class="sort-select">
+        <option value="recent">most recent</option>
+        <option value="oldest">least recent</option>
+        <option value="easy">easy → hard</option>
+        <option value="hard">hard → easy</option>
+      </select>
+    </div>
 
-            </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-date="2025-12-09" data-difficulty="3">
+        <img src="../images/origami/christmas tree.JPG" loading="lazy">
+        <div class="overlay"><p>christmas tree</p></div>
+      </div>
 
-            <div class="gallery-grid">
+      <div class="gallery-item" data-date="2025-12-02" data-difficulty="2">
+        <img src="../images/origami/tulips.jpg" loading="lazy">
+        <div class="overlay"><p>tulips</p></div>
+      </div>
 
-                <div class="gallery-item" data-date="2025-10-07" data-difficulty="1">
-                    <img src="images/origami/lucky stars.jpg" alt="lucky origami stars">
-                    <div class="overlay"><p>lucky stars</p></div>
-                </div>
+      <div class="gallery-item" data-date="2025-11-18" data-difficulty="3">
+        <img src="../images/origami/foxes.jpg" loading="lazy">
+        <div class="overlay"><p>foxes</p></div>
+      </div>
 
-                <div class="gallery-item" data-date="2025-10-14" data-difficulty="2">
-                    <img src="images/origami/butterfly.JPG" alt="origami butterfly">
-                    <div class="overlay"><p>butterfly</p></div>
-                </div>
+      <div class="gallery-item" data-date="2025-10-28" data-difficulty="2">
+        <img src="../images/origami/bats.jpg" loading="lazy">
+        <div class="overlay"><p>bats</p></div>
+      </div>
 
-                <div class="gallery-item" data-date="2025-10-21" data-difficulty="1">
-                    <img src="images/origami/hearts.jpg" alt="origami hearts">
-                    <div class="overlay"><p>hearts</p></div>
-                </div>
+      <div class="gallery-item" data-date="2025-10-21" data-difficulty="2">
+        <img src="../images/origami/hearts.jpg" loading="lazy">
+        <div class="overlay"><p>hearts</p></div>
+      </div>
 
-                <div class="gallery-item" data-date="2025-10-28" data-difficulty="2">
-                    <img src="images/origami/bats.jpg" alt="origami bats">
-                    <div class="overlay"><p>bats</p></div>
-                </div>
+      <div class="gallery-item" data-date="2025-10-14" data-difficulty="2">
+        <img src="../images/origami/butterfly.JPG" loading="lazy">
+        <div class="overlay"><p>butterfly</p></div>
+      </div>
 
-                <div class="gallery-item" data-date="2025-11-04" data-difficulty="3">
-                    <img src="images/origami/foxes.jpg" alt="origami foxes">
-                    <div class="overlay"><p>foxes</p></div>
-                </div>
-
-                <div class="gallery-item" data-date="2025-12-02" data-difficulty="2">
-                    <img src="images/origami/tulips.jpg" alt="tulips">
-                    <div class="overlay"><p>tulips</p></div>
-                </div>
-
-                <div class="gallery-item" data-date="2025-12-09" data-difficulty="3">
-                    <img src="images/origami/christmas tree.JPG" alt="christmas tree">
-                    <div class="overlay"><p>christmas tree</p></div>
-                </div>
-                <!-- add more as needed -->
-
-            </div>
-        </div>
-    </section>
+      <div class="gallery-item" data-date="2025-10-07" data-difficulty="1">
+        <img src="../images/origami/lucky stars.jpg" loading="lazy">
+        <div class="overlay"><p>lucky stars</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
+<script src="../script.js"></script>
 </body>
 </html>
