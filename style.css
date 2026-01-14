@@ -211,22 +211,31 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
-    gap: 1rem;
+    margin-bottom: 2.5rem;
+    gap: 2rem; /*space between "sort by" and selector */
 }
 
 .sort-select {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 1rem;
-    padding: 0.6rem 1rem;
-    border-radius: 12px;
+    padding: 0.75rem 3rem 0.75rem 1.5rem;  /* ← more right padding */
+    border-radius: 14px;
     border: 2px solid transparent;
     background-color: var(--sage-green);
     color: var(--white);
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.19, 1, 0.22, 1),
+                box-shadow 0.25s cubic-bezier(0.19, 1, 0.22, 1),
+                background 0.3s ease;
     box-shadow: var(--shadow);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="10"><polygon points="0,0 16,0 8,10" fill="%23ffffff"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1.25rem center; /* ← move arrow right */
+    background-size: 16px 10px;
 }
 
 .sort-select:hover {
@@ -237,7 +246,7 @@ h2 {
 .sort-select:focus {
     outline: none;
     border-color: var(--sage-green-dark);
-    box-shadow: 0 0 0 4px rgba(146, 188, 160, 0.1);
+    box-shadow: 0 0 0 4px rgba(146, 188, 160, 0.15);
 }
 
 /* Gallery grid */
@@ -353,6 +362,7 @@ h2 {
     padding: 3rem;
     border-radius: 16px;
     box-shadow: var(--shadow);
+    autocomplete: off;
 }
 
 .form-group {

@@ -1,55 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // navigation scroll
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                e.preventDefault();
-                const headerOffset = 80;
-                const elementPosition = targetSection.getBoundingClientRect().top;
-                const offsetPosition =
-                    elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // gallery sorting
+    // Gallery sorting
     const galleryGrid = document.querySelector('.gallery-grid');
     const sortSelect = document.getElementById('sort');
 
     if (galleryGrid && sortSelect) {
-        const items = Array.from(galleryGrid.children);
-
         sortSelect.addEventListener('change', () => {
+            const items = Array.from(galleryGrid.querySelectorAll('.gallery-item'));
             const mode = sortSelect.value;
 
-            const sortedItems = [...items].sort((a, b) => {
+            const sortedItems = items.sort((a, b) => {
                 const dateA = new Date(a.dataset.date);
                 const dateB = new Date(b.dataset.date);
                 const diffA = Number(a.dataset.difficulty);
                 const diffB = Number(b.dataset.difficulty);
 
                 switch (mode) {
-                    case 'recent':
-                        return dateB - dateA;
-                    case 'oldest':
-                        return dateA - dateB;
-                    case 'easy':
-                        return diffA - diffB;
-                    case 'hard':
-                        return diffB - diffA;
-                    default:
-                        return 0;
+                    case 'recent': return dateB - dateA;
+                    case 'oldest': return dateA - dateB;
+                    case 'easy': return diffA - diffB;
+                    case 'hard': return diffB - diffA;
+                    default: return 0;
                 }
             });
 
@@ -57,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // gallery fade-in
+    // Gallery fade-in
+    const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
@@ -74,15 +46,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.gallery-item').forEach(item => {
         item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
+        item.style.transform = 'translateY(30px)';
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(item);
     });
 
-    // contact form
+    // Contact form
     const contactForm = document.querySelector('.contact-form');
 
     if (contactForm) {
+        contactForm.setAttribute('autocomplete', 'off');
+
         contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
@@ -92,22 +66,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 const response = await fetch(contactForm.action, {
                     method: contactForm.method || 'POST',
                     body: new FormData(contactForm),
-                    headers: { Accept: 'application/json' }
                 });
 
                 if (response.ok) {
-                    formMessage.textContent =
-                        "🌿 thanks for joining! we'll be in touch soon.";
+                    formMessage.textContent = '🌿 thanks for joining! we’ll be in touch soon.';
                     contactForm.reset();
                 } else {
-                    formMessage.textContent =
-                        "❌ something went wrong. please try again later.";
+                    formMessage.textContent = '❌ something went wrong. please try again later.';
                 }
-            } catch (err) {
-                formMessage.textContent =
-                    "❌ network error. please try again later.";
-                console.error(err);
+            } catch (error) {
+                formMessage.textContent = '❌ network error. please try again later.';
             }
         });
     }
+
 });
