@@ -16,6 +16,7 @@
     --text-light: #636e72;
     --shadow: 0 4px 20px rgba(146, 188, 160, 0.15);
     --shadow-hover: 0 8px 30px rgba(146, 188, 160, 0.25);
+    --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
@@ -212,21 +213,21 @@ h2 {
     align-items: center;
     justify-content: center;
     margin-bottom: 2.5rem;
-    gap: 2rem; /*space between "sort by" and selector */
+    gap: 2rem;
 }
 
 .sort-select {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 1rem;
-    padding: 0.75rem 3rem 0.75rem 1.5rem;  /* ← more right padding */
+    padding: 0.75rem 3rem 0.75rem 1.5rem;
     border-radius: 14px;
     border: 2px solid transparent;
     background-color: var(--sage-green);
     color: var(--white);
     cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.19, 1, 0.22, 1),
-                box-shadow 0.25s cubic-bezier(0.19, 1, 0.22, 1),
+    transition: transform 0.25s var(--ease-soft),
+                box-shadow 0.25s var(--ease-soft),
                 background 0.3s ease;
     box-shadow: var(--shadow);
     -webkit-appearance: none;
@@ -234,7 +235,7 @@ h2 {
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="10"><polygon points="0,0 16,0 8,10" fill="%23ffffff"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 1.25rem center; /* ← move arrow right */
+    background-position: right 1.25rem center; /* moved arrow right */
     background-size: 16px 10px;
 }
 
@@ -262,8 +263,9 @@ h2 {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s var(--ease-soft), box-shadow 0.3s var(--ease-soft);
     aspect-ratio: 1;
+    outline: none; /* keyboard focus */
 }
 
 .gallery-item img {
@@ -271,7 +273,7 @@ h2 {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s var(--ease-soft), filter 0.3s var(--ease-soft);
 }
 
 /* Overlay text */
@@ -310,6 +312,10 @@ h2 {
 
 .gallery-item:hover .overlay {
     opacity: 1;
+}
+
+.gallery-item:focus-visible {
+    box-shadow: 0 0 0 3px var(--sage-green-dark);
 }
 
 /* Show More Button */
@@ -527,4 +533,103 @@ footer p {
     .gallery-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* new updates below */
+
+/* scroll progress */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: currentColor;
+  opacity: 0.55;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* gallery spotlight overlay */
+.gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.04);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease;
+}
+
+.gallery:hover::after {
+  opacity: 1;
+}
+
+/* section fade-in */
+.section {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 420ms var(--ease-soft), transform 420ms var(--ease-soft);
+}
+
+/* subtle stagger for children */
+.section.visible > * {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 360ms var(--ease-soft), transform 360ms var(--ease-soft);
+}
+
+.section.visible > *:nth-child(1) { transition-delay: 40ms; }
+.section.visible > *:nth-child(2) { transition-delay: 80ms; }
+.section.visible > *:nth-child(3) { transition-delay: 120ms; }
+.section.visible > *:nth-child(4) { transition-delay: 160ms; }
+
+.section.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* nav hide on scroll */
+nav {
+  transition: transform 320ms var(--ease-soft);
+}
+
+nav.nav-hidden {
+  transform: translateY(-100%);
+}
+
+/* form loading animation */
+.submit-btn.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.submit-btn.loading::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.form-success {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 360ms var(--ease-soft), transform 360ms var(--ease-soft);
+}
+
+.form-success.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
