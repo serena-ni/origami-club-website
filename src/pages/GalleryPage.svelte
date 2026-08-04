@@ -6,6 +6,11 @@
   import SiteFooter from '../components/SiteFooter.svelte';
   import { galleryItems } from '../data/galleryItems.js';
 
+  import { dev } from '$app/environment';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+  injectAnalytics({ mode: dev ? 'development' : 'production' });
+
   const links = [
     { href: '/', label: 'home' },
     { href: '/#about', label: 'about' },
