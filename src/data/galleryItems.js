@@ -17,14 +17,28 @@ export const galleryItems = [
 
   
   // 2025 - 2026
-
+  {
+    name: 'frogs',
+    image: frog,
+    date: '2026-04-28',
+    difficulty: 2,
+    category: 'animals',
+    time: '15-20 min'
+  },
+  {
+    name: 'swans',
+    image: swan,
+    date: '2026-04-21',
+    difficulty: 2,
+    category: 'animals',
+    time: '15-20 min'
+  },
   {
     name: 'sea turtles',
     image: turtles,
     date: '2026-03-31',
     difficulty: 2,
     category: 'animals',
-    paperSize: '15 cm square',
     time: '15-20 min'
   },
   {
@@ -33,7 +47,6 @@ export const galleryItems = [
     date: '2026-03-24',
     difficulty: 2,
     category: 'animals',
-    paperSize: '15 cm square',
     time: '15-20 min'
   },
   {
@@ -42,16 +55,38 @@ export const galleryItems = [
     date: '2026-03-17',
     difficulty: 1,
     category: 'flowers',
-    paperSize: '10-15 cm square',
+    time: '10-15 min'
+  },
+  {
+    name: 'cat',
+    image: cat,
+    date: '2026-03-10',
+    difficulty: 2,
+    category: 'animals',
     time: '10-15 min'
   },
   {
     name: 'miura',
     image: miura,
-    date: '2026-03-10',
+    date: '2026-03-03',
     difficulty: 3,
     category: 'modular',
-    paperSize: 'thin square sheet',
+    time: '25-30 min'
+  },
+  {
+    name: 'godzilla',
+    image: godzilla,
+    date: '2026-03-20',
+    difficulty: 4,
+    category: 'animals',
+    time: '25-30 min'
+  },
+  {
+    name: 'masu box',
+    image: masu-box,
+    date: '2026-01-13',
+    difficulty: 2,
+    category: 'practical',
     time: '25-30 min'
   },
   {
@@ -60,7 +95,6 @@ export const galleryItems = [
     date: '2026-02-03',
     difficulty: 2,
     category: 'flowers',
-    paperSize: '15 cm square',
     time: '15-20 min'
   },
   {
@@ -69,7 +103,6 @@ export const galleryItems = [
     date: '2025-12-09',
     difficulty: 3,
     category: 'seasonal',
-    paperSize: '15 cm square',
     time: '15-20 min'
   },
   {
@@ -78,7 +111,6 @@ export const galleryItems = [
     date: '2025-12-02',
     difficulty: 2,
     category: 'flowers',
-    paperSize: '15 cm square',
     time: '10-15 min'
   },
   {
@@ -87,7 +119,6 @@ export const galleryItems = [
     date: '2025-11-18',
     difficulty: 3,
     category: 'animals',
-    paperSize: '15 cm square',
     time: '25-30 min'
   },
   {
@@ -96,25 +127,22 @@ export const galleryItems = [
     date: '2025-10-28',
     difficulty: 2,
     category: 'seasonal',
-    paperSize: '15 cm square',
     time: '15-20 min'
-  },
-  {
-    name: 'hearts',
-    image: hearts,
-    date: '2025-10-21',
-    difficulty: 2,
-    category: 'seasonal',
-    paperSize: '15 cm square',
-    time: '5-10 min'
   },
   {
     name: 'butterfly',
     image: butterfly,
-    date: '2025-10-14',
+    date: '2025-10-21',
     difficulty: 2,
     category: 'animals',
-    paperSize: '15 cm square',
+    time: '5-10 min'
+  },
+  {
+    name: 'hearts',
+    image: hearts,
+    date: '2025-10-14',
+    difficulty: 2,
+    category: 'seasonal',
     time: '5-10 min'
   },
   {
@@ -123,7 +151,6 @@ export const galleryItems = [
     date: '2025-10-07',
     difficulty: 1,
     category: 'modular',
-    paperSize: 'slips of paper',
     time: '2 min'
   }
 ];

@@ -13,7 +13,6 @@
       <p class="eyebrow">leland high school</p>
       <h2>origami club</h2>
       <p class="hero-lead">where anyone can make beautiful things</p>
-
       <div class="hero-actions">
         <a href="#generator" class="primary-btn">start folding</a>
         <a href="#fold-of-the-week" class="secondary-btn">see this week&apos;s fold</a>
