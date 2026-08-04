@@ -8,9 +8,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        gallery: resolve(__dirname, 'gallery.html'),
-        galleryRedirect: resolve(__dirname, 'gallery/index.html')
+        main: resolve(__dirname, 'index.html')
       }
     }
   }

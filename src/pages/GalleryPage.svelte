@@ -7,79 +7,55 @@
   import { galleryItems } from '../data/galleryItems.js';
 
   const links = [
-    { href: '/', label: 'home', active: false },
-    { href: '/#about', label: 'about', active: false },
-    { href: '/#gallery', label: 'gallery', active: false },
-    { href: '/#join', label: 'join us', active: false }
+    { href: '/', label: 'home' },
+    { href: '/#about', label: 'about' },
+    { href: '/#fold-of-the-week', label: 'fold of the week' },
+    { href: '/gallery', label: 'gallery' },
+    { href: '/#join', label: 'join us' }
   ];
 
-  let sort = 'recent';
-  let currentIndex = 0;
-  let galleryRefs = [];
+  const storageKey = 'origami-gallery-school-year';
+  const yearOrder = ['2026-2027', '2025-2026'];
+  const yearLabels = {
+    '2026-2027': '2026 - 2027',
+    '2025-2026': '2025 - 2026',
+    all: 'all years'
+  };
 
-  $: sortedItems = [...galleryItems].sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
+  let selectedYear = '2025-2026';
+  let shouldAnimateGallery = true;
 
-    switch (sort) {
-      case 'recent':
-        return dateB - dateA;
-      case 'oldest':
-        return dateA - dateB;
-      case 'easy':
-        return a.difficulty - b.difficulty;
-      case 'hard':
-        return b.difficulty - a.difficulty;
-      default:
-        return 0;
+  function getPhotosForYear(year) {
+    if (year === '2025-2026' || year === 'all') {
+      return [...galleryItems].sort((left, right) => new Date(right.date) - new Date(left.date));
     }
-  });
 
-  $: if (currentIndex >= sortedItems.length) {
-    currentIndex = 0;
+    return [];
   }
 
-  $: galleryRefs = [];
+  $: visiblePhotos = getPhotosForYear(selectedYear);
 
-  function highlightItem(index) {
-    currentIndex = index;
+  $: yearSubtitle = selectedYear === 'all'
+    ? 'all current club photos in one place.'
+    : selectedYear === '2025-2026'
+      ? 'all current club photos are saved in the 2025-2026 album.'
+      : 'the 2026-2027 album is ready for new photos.';
 
-    if (galleryRefs[index]) {
-      galleryRefs[index].scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
-    }
-  }
+  function selectYear(year) {
+    selectedYear = year;
+    shouldAnimateGallery = false;
+    localStorage.setItem(storageKey, year);
 
-  function isMobile() {
-    return window.innerWidth <= 768;
-  }
-
-  function handleKeydown(event) {
-    if (isMobile() || sortedItems.length === 0) {
-      return;
-    }
-
-    if (event.key === 'ArrowRight') {
-      event.preventDefault();
-      currentIndex = (currentIndex + 1) % sortedItems.length;
-      highlightItem(currentIndex);
-    }
-
-    if (event.key === 'ArrowLeft') {
-      event.preventDefault();
-      currentIndex = (currentIndex - 1 + sortedItems.length) % sortedItems.length;
-      highlightItem(currentIndex);
-    }
+    window.requestAnimationFrame(() => {
+      shouldAnimateGallery = true;
+    });
   }
 
   onMount(() => {
-    document.addEventListener('keydown', handleKeydown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeydown);
-    };
+    const savedYear = localStorage.getItem(storageKey);
+    if (savedYear && [...yearOrder, 'all'].includes(savedYear)) {
+      selectedYear = savedYear;
+    }
   });
 </script>
 
@@ -89,32 +65,44 @@
 <main class="gallery-page-main">
   <section id="gallery" class="gallery-page-section">
     <div class="container">
-      <h2 in:fade={{ duration: 400 }}>full gallery</h2>
-      <p class="gallery-subtitle" in:fade={{ delay: 70, duration: 400 }}>all creations throughout the year</p>
+      <h2 in:fade={{ duration: 400 }}>club photo albums</h2>
+      <p class="gallery-subtitle" in:fade={{ delay: 70, duration: 400 }}>{yearSubtitle}</p>
 
-      <div class="sort-container" in:fade={{ delay: 120, duration: 400 }}>
-        <label for="sort">sort by:</label>
-        <select id="sort" class="sort-select" bind:value={sort}>
-          <option value="recent">most recent</option>
-          <option value="oldest">least recent</option>
-          <option value="easy">easy -&gt; hard</option>
-          <option value="hard">hard -&gt; easy</option>
-        </select>
-      </div>
-
-      <div class="gallery-grid">
-        {#each sortedItems as item, index (item.name + item.date)}
-          <div
-            class="gallery-item"
-            class:keyboard-focus={index === currentIndex}
-            bind:this={galleryRefs[index]}
-            in:fly={{ y: 18, duration: 420, delay: index * 45 }}
+      <div class="year-tabs" in:fade={{ delay: 120, duration: 400 }}>
+        {#each [...yearOrder, 'all'] as year}
+          <button
+            type="button"
+            class:active={selectedYear === year}
+            class="year-tab"
+            onclick={() => selectYear(year)}
           >
-            <img src={item.image} alt={item.name} loading="lazy" />
-            <div class="overlay"><p>{item.name}</p></div>
-          </div>
+            {yearLabels[year]}
+          </button>
         {/each}
       </div>
+
+      {#key selectedYear}
+        <div class:gallery-fade={shouldAnimateGallery} class="gallery-photo-grid" in:fade={{ duration: 300 }}>
+          {#each visiblePhotos as photo, index (photo.name)}
+            <article class="gallery-photo-card" in:fly={{ y: 16, duration: 380, delay: index * 35 }}>
+              <img src={photo.image} alt={photo.name} loading="lazy" />
+              <div>
+                <p class="album-category">{photo.category}</p>
+                <h3>{photo.name}</h3>
+                <p>{photo.paperSize} - {photo.time}</p>
+              </div>
+            </article>
+          {/each}
+        </div>
+      {/key}
+
+      {#if visiblePhotos.length === 0}
+        <div class="empty-gallery glass-card">
+          <h3>no photos yet for this year.</h3>
+          <br>
+          <p>current photos are in the "2025-2026" and "all years" albums</p>
+        </div>
+      {/if}
     </div>
   </section>
 </main>
