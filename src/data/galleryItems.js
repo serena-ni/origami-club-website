@@ -18,22 +18,6 @@ export const galleryItems = [
   
   // 2025 - 2026
   {
-    name: 'frogs',
-    image: frog,
-    date: '2026-04-28',
-    difficulty: 2,
-    category: 'animals',
-    time: '15-20 min'
-  },
-  {
-    name: 'swans',
-    image: swan,
-    date: '2026-04-21',
-    difficulty: 2,
-    category: 'animals',
-    time: '15-20 min'
-  },
-  {
     name: 'sea turtles',
     image: turtles,
     date: '2026-03-31',
@@ -58,35 +42,11 @@ export const galleryItems = [
     time: '10-15 min'
   },
   {
-    name: 'cat',
-    image: cat,
-    date: '2026-03-10',
-    difficulty: 2,
-    category: 'animals',
-    time: '10-15 min'
-  },
-  {
     name: 'miura',
     image: miura,
     date: '2026-03-03',
     difficulty: 3,
     category: 'modular',
-    time: '25-30 min'
-  },
-  {
-    name: 'godzilla',
-    image: godzilla,
-    date: '2026-03-20',
-    difficulty: 4,
-    category: 'animals',
-    time: '25-30 min'
-  },
-  {
-    name: 'masu box',
-    image: masu-box,
-    date: '2026-01-13',
-    difficulty: 2,
-    category: 'practical',
     time: '25-30 min'
   },
   {

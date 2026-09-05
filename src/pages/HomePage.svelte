@@ -4,8 +4,6 @@
   import ScrollProgress from '../components/ScrollProgress.svelte';
   import SiteHeader from '../components/SiteHeader.svelte';
   import SiteFooter from '../components/SiteFooter.svelte';
-  import FoldOfWeek from '../components/home/FoldOfWeek.svelte';
-  import Generator from '../components/home/Generator.svelte';
   import Hero from '../components/home/Hero.svelte';
   import Join from '../components/home/Join.svelte';
   import Showcase from '../components/home/Showcase.svelte';
@@ -13,7 +11,6 @@
 
   const links = [
     { href: '/', label: 'home' },
-    { href: '#fold-of-the-week', label: 'fold of the week' },
     { href: '#gallery', label: 'gallery' },
     { href: '#join', label: 'join us' }
   ];
@@ -47,7 +44,6 @@
           : ['great for practicing clean symmetry', 'works well with calm, steady folds']
   }));
 
-  const featuredFold = foldLibrary.find((item) => item.name === 'lotus') ?? foldLibrary[0];
   const showMemberShowcase = false;
   const storageKey = 'origami-gallery-school-year';
   const yearOrder = ['2026-2027', '2025-2026'];
@@ -202,8 +198,6 @@
 
 <main class="home-page-main">
   <Hero {countdownText} {meetings} />
-  <FoldOfWeek {featuredFold} />
-  <Generator />
   {#if showMemberShowcase}
     <Showcase {currentShowcaseIndex} {showcase} {cycleShowcase} />
   {/if}

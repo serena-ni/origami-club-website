@@ -9,7 +9,7 @@
 <section id="join" class="section-block muted-block join-section">
   <div class="container">
     <div class="section-heading narrow-heading" in:fade={{ duration: 360 }}>
-      <h2>say hello and start your journey</h2>
+      <h2>join us!</h2>
     </div>
 
     <form

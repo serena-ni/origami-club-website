@@ -14,7 +14,6 @@
   const links = [
     { href: '/', label: 'home' },
     { href: '/#about', label: 'about' },
-    { href: '/#fold-of-the-week', label: 'fold of the week' },
     { href: '/gallery', label: 'gallery' },
     { href: '/#join', label: 'join us' }
   ];
